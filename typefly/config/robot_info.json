@@ -1,7 +1,30 @@
 {
-    "robot_id": "robot1",
-    "robot_type": "go2",
+    "robot_id": "quadfan1",
+    "robot_type": "quadfan_arduino",
     "extra": {
-        "capture": 0
+        "serial_port": "/dev/ttyACM0",
+        "baud": 115200,
+        "mode_default": "TETHERED",
+        "throttle_max_tethered": 0.35,
+        "throttle_max_untethered": 0.60,
+        "pitch_gain": 4.0,
+        "roll_gain": 4.0,
+        "pid_pitch": {
+            "kp": 2.0,
+            "ki": 0.1,
+            "kd": 0.05
+        },
+        "pid_roll": {
+            "kp": 2.0,
+            "ki": 0.1,
+            "kd": 0.05
+        },
+        "watchdog_ms": 500,
+        "motor_pins": {
+            "front_left": 3,
+            "front_right": 5,
+            "rear_left": 6,
+            "rear_right": 9
+        }
     }
 }

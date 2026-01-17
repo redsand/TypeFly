@@ -30,6 +30,9 @@ class LLMController():
         elif robot_info.robot_type == "go2":
             from .platforms.go2_wrapper import Go2Wrapper
             self.robot = Go2Wrapper(robot_info)
+        elif robot_info.robot_type == "quadfan_arduino":
+            from .platforms.quadfan_arduino import QuadfanArduinoWrapper
+            self.robot = QuadfanArduinoWrapper(robot_info)
         self.planner = LLMPlanner(self.robot)
         self.current_plan_loop_thread = None
 
@@ -52,7 +55,10 @@ class LLMController():
         self.robot.start()
         
     def stop_controller(self):
-        self.robot.stop()
+        if hasattr(self.robot, "shutdown"):
+            self.robot.shutdown()
+        else:
+            self.robot.stop()
 
     def fetch_robot_pov(self, overlay: bool=True) -> Optional[Image.Image]:
         image = self.robot.obs.image

@@ -32,6 +32,9 @@ To control a Unitree Go2 robot dog with TypeFly, you need to install ROS2 and ru
 ### Other Robots
 To support other robots, you need to implement the robot control interface based on the `RobotWrapper`, see examples in `typefly/platforms/*`.
 
+### Quadfan Arduino Platform
+TypeFly includes a quad duct-fan test rig platform (`quadfan_arduino`) with tethered (open-loop) and untethered (PID stabilized) modes. See the setup guide in `docs/quadfan.md` and the example scripts in `typefly/examples/quadfan/`.
+
 ## 3. OPENAI API KEY Requirement
 TypeFly use GPT API as the remote LLM planner, please make sure you have set the `OPENAI_API_KEY` environment variable.
 
